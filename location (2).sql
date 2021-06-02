@@ -34,7 +34,7 @@ CREATE TABLE `annonce` (
   `nbr_pes` int(11) DEFAULT NULL,
   `titre` varchar(50) DEFAULT NULL,
   `type` varchar(10) DEFAULT NULL,
-  `bi` varchar(50) DEFAULT NULL,
+  `bi` int NOT NULL,
   `utilisateur` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -53,7 +53,7 @@ INSERT INTO `annonce` (`annonce_id`, `datePub`, `description`, `nbr_pes`, `titre
 --
 
 CREATE TABLE `bienimmobilier` (
-  `bi_id` varchar(50) NOT NULL,
+  `bi_id` int NOT Null AUTO_INCREMENT PRIMARY KEY ,
   `description` varchar(300) DEFAULT NULL,
   `maxPers` int(11) DEFAULT NULL,
   `nbrChambre` int(11) DEFAULT NULL,
@@ -157,11 +157,7 @@ ALTER TABLE `annonce`
   ADD KEY `FK_userAnnonce` (`utilisateur`),
   ADD KEY `FK_biAnnonce` (`bi`);
 
---
--- Indexes for table `bienimmobilier`
---
-ALTER TABLE `bienimmobilier`
-  ADD PRIMARY KEY (`bi_id`);
+
 
 --
 -- Indexes for table `commentaire`
