@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2021 at 11:09 AM
+-- Generation Time: Jun 02, 2021 at 10:06 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -27,8 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `annonce`
 --
 
-CREATE Database location ;
-
 CREATE TABLE `annonce` (
   `annonce_id` varchar(50) NOT NULL,
   `datePub` date DEFAULT NULL,
@@ -39,6 +37,14 @@ CREATE TABLE `annonce` (
   `bi` varchar(50) DEFAULT NULL,
   `utilisateur` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `annonce`
+--
+
+INSERT INTO `annonce` (`annonce_id`, `datePub`, `description`, `nbr_pes`, `titre`, `type`, `bi`, `utilisateur`) VALUES
+('1', '2021-06-01', 'desc desc desc desc desc desc desc ', 3, 'dar dar dar dar dar dar dar ', NULL, '1', 'wass'),
+('2', '2021-06-02', 'desc desc desc desc desc ', 2, 'dar dar dar dar dar dar dara', NULL, NULL, 'wass');
 
 -- --------------------------------------------------------
 
@@ -58,6 +64,13 @@ CREATE TABLE `bienimmobilier` (
   `ville` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bienimmobilier`
+--
+
+INSERT INTO `bienimmobilier` (`bi_id`, `description`, `maxPers`, `nbrChambre`, `plusInfo`, `etatBI`, `statutBI`, `quartier`, `ville`) VALUES
+('1', 'desc desc desc desc desc desc desc desc ', 5, 4, NULL, 'neuf', 'disponible', 'ben Seffar', 'Sefrou');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +84,15 @@ CREATE TABLE `commentaire` (
   `annonce` varchar(50) DEFAULT NULL,
   `commentaireParent` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `commentaire`
+--
+
+INSERT INTO `commentaire` (`commentaire_id`, `datepub`, `texte`, `annonce`, `commentaireParent`) VALUES
+('1', '2021-06-01', 'text text text text text text ', '1', NULL),
+('2', NULL, NULL, NULL, NULL),
+('4', '2021-06-01', 'text', '2', '1');
 
 -- --------------------------------------------------------
 
@@ -113,6 +135,15 @@ CREATE TABLE `utilisateur` (
   `tel` varchar(11) DEFAULT NULL,
   `online` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`user_id`, `nom`, `prenom`, `email`, `motPasse`, `sexe`, `tel`, `online`) VALUES
+('', 'Wassim', 'wassim', 'wassim@gmail.com', 'User-321', 'H', '0673104127', 0),
+('wass', 'wass', 'wass', 'wass@gmail.com', 'User-321', 'F', '0673104124', 0),
+('Wassim249', 'wassim', 'wassim', 'wassim@gmail.com', 'User-321', 'H', '0673104127', 0);
 
 --
 -- Indexes for dumped tables
