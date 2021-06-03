@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `annonce`
 --
 
+CREATE DATABASE location ;
+
+use location ;
+
 CREATE TABLE `annonce` (
   `annonce_id` varchar(50) NOT NULL,
   `datePub` date DEFAULT NULL,
